@@ -1,0 +1,1 @@
+const List settings = ["Theme", "Language" , "Help"];
