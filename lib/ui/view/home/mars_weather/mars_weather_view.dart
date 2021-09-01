@@ -13,12 +13,12 @@ class MarsWeatherView extends StatelessWidget {
           children: [
             Container(
               height: double.maxFinite,
+              width: MediaQuery.of(context).size.width + 2,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/mars_weather_bg.png"),
                       fit: BoxFit.fill)),
             ),
-            getRightArrow(context)
           ]
         ),
       ),

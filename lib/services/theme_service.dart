@@ -4,7 +4,7 @@ class ThemeService {
   static ThemeData get lightTheme {
     return ThemeData(
       primaryColor: Colors.purple,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.black,
       fontFamily: 'Montserrat',
       dividerTheme: DividerThemeData(
         color: Colors.white,
@@ -22,7 +22,7 @@ class ThemeService {
   static ThemeData get darkTheme {
     return ThemeData(
       primaryColor: Colors.purple,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.black,
       fontFamily: 'Montserrat',
       dividerTheme: DividerThemeData(
           color: Colors.white,

@@ -4,10 +4,12 @@ import 'package:stacked_services/stacked_services.dart';
 
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
+import 'app/setup_dialog_ui.dart';
 
 
 void main() {
   setupLocator();
+  setupDialogUi();
   runApp(MyApp());
 }
 

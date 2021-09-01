@@ -13,13 +13,12 @@ class RandomPictureView extends StatelessWidget {
           children: [
             Container(
               height: double.maxFinite,
+              width: MediaQuery.of(context).size.width + 2,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/random_picture_bg.png"),
                       fit: BoxFit.fill)),
             ),
-            getRightArrow(context),
-            getLeftArrow(context)
           ]
         ),
       ),

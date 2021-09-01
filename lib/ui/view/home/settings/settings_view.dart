@@ -13,6 +13,7 @@ class SettingsView extends StatelessWidget {
         body: Stack(children: [
           Container(
             height: double.maxFinite,
+            width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/settings_bg.png"),
@@ -59,7 +60,6 @@ class SettingsView extends StatelessWidget {
               ],
             ),
           ),
-          getLeftArrow(context)
         ]),
       ),
       viewModelBuilder: () => SettingsViewModel(),

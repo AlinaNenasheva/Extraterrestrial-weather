@@ -11,6 +11,7 @@ import 'package:stacked_services/stacked_services.dart';
   dependencies: [
     LazySingleton(classType: ApiService),
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: DialogService),
   ],
   routes: [
     MaterialRoute(page: WelcomeView, initial: true),
