@@ -36,20 +36,23 @@ class SettingsView extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
-                            Container(
-                              height: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: index == 0 ? BorderRadius.only(
-                                    topRight: Radius.circular(15.0),
-                                    topLeft: Radius.circular(15.0)) :
-                                index == Consts.settings.length - 1 ?
-                                BorderRadius.only(
-                                    bottomRight: Radius.circular(15.0),
-                                    bottomLeft: Radius.circular(15.0)) :
-                                BorderRadius.zero,
-                                color: Colors.grey.withOpacity(0.3),
+                            GestureDetector(
+                              child: Container(
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: index == 0 ? BorderRadius.only(
+                                      topRight: Radius.circular(15.0),
+                                      topLeft: Radius.circular(15.0)) :
+                                  index == Consts.settings.length - 1 ?
+                                  BorderRadius.only(
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0)) :
+                                  BorderRadius.zero,
+                                  color: Colors.grey.withOpacity(0.3),
+                                ),
+                                child: Center(child: Text(Consts.settings[index])),
                               ),
-                              child: Center(child: Text(Consts.settings[index])),
+                              onTap: model.getSettingsOptions(Consts.settings[index])
                             ),
                             if (index != Consts.settings.length - 1)
                               Divider(height: 0.5)
