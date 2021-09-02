@@ -1,17 +1,21 @@
 
+import 'dart:convert';
+
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/consts/enums.dart';
-import 'package:flutter/foundation.dart';
+import 'package:extraterrestrial_weather/services/api_service.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class SettingsViewModel extends BaseViewModel {
   var _dialogService = locator<DialogService>();
 
-  VoidCallback getSettingsOptions(String option) {
+  getSettingsOptions(String option) {
     switch (option) {
       case "Language":
-        return _onLanguageOptionPressed();
+        _onLanguageOptionPressed();
+        break;
       case "Help":
         return () {};
       case "Theme":
@@ -21,11 +25,14 @@ class SettingsViewModel extends BaseViewModel {
     }
   }
 
-  _onLanguageOptionPressed() async {
-    await _dialogService.showCustomDialog(
+  void _onLanguageOptionPressed() async {
+    var response = await _dialogService.showCustomDialog(
       variant: DialogType.language,
       title: 'Choose language',
       mainButtonTitle: 'Ok',
     );
+    if (response!.confirmed) {
+      //TODO change language
+    }
   }
 }

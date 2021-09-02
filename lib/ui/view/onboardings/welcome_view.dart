@@ -19,7 +19,7 @@ class WelcomeView extends StatelessWidget {
             children: [
               Text(
                 'Welcome to extraterrestrial weather!',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(
                 height: 24.0,

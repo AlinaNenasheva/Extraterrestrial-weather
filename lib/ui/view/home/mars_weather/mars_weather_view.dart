@@ -1,3 +1,4 @@
+import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/ui/widgets/right_arrow.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -5,6 +6,7 @@ import 'package:stacked/stacked.dart';
 import 'mars_weather_viewmodel.dart';
 
 class MarsWeatherView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<MarsWeatherViewModel>.reactive(
@@ -19,10 +21,52 @@ class MarsWeatherView extends StatelessWidget {
                       image: AssetImage("assets/mars_weather_bg.png"),
                       fit: BoxFit.fill)),
             ),
+            Container(
+              padding: EdgeInsets.only(top: 100.0, left: 32.0, right: 32.0),
+              child: model.isLoading ? CircularProgressIndicator(): Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20.0),
+                    child: Text(
+                      'Latest Weather at Gale Crater',
+                      style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: Text(
+                      "Sol ${model.solWeatherDto[0].sol}",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: Text(
+                      "${model.solWeatherDto[0].terrestrialDate}",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ),
+                  Text(
+                    "High: ${model.solWeatherDto[0].highCelsius} °C",
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                  Text(
+                    "Low: ${model.solWeatherDto[0].highCelsius} °C",
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                  Text(
+                    "Low: ${model.solWeatherDto[0].pressure} Pa(${model.solWeatherDto[0].pressureStatus})",
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                ],
+              ),
+            )
           ]
         ),
       ),
-      viewModelBuilder: () => MarsWeatherViewModel(),
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
+      viewModelBuilder: () => locator<MarsWeatherViewModel>(),
     );
   }
 }

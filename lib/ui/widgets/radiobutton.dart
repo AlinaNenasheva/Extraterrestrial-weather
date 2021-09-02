@@ -23,7 +23,7 @@ class RadioButton<T> extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-                color: value == groupValue ? Colors.white : Colors.black
+                color: value == groupValue ? Color(0xFF858b97) : Color(0xFF20292e)
             )
         ),
         child: Center(
@@ -40,7 +40,7 @@ class RadioButton<T> extends StatelessWidget {
                   width: this.width - 8.0,
                   decoration: ShapeDecoration(
                     shape: CircleBorder(),
-                    color: value == groupValue ? Colors.black : Colors.transparent,
+                    color: value == groupValue ? Color(0xFF20292e) : Colors.transparent,
                   )),
             ),
           ),

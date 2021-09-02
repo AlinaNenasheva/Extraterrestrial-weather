@@ -53,16 +53,16 @@ class _LanguageDialogState extends State<LanguageDialog> {
               leading: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Image.asset(
-                  //   supportedLanguages[index]["icon"],
-                  //   height: 20,
-                  //   width: 28,
-                  // ),
+                  Image.asset(
+                    Consts.supportedLanguagesIcons[index],
+                    height: 20,
+                    width: 28,
+                  ),
                 ],
               ),
               title: Text(
                 Consts.supportedLanguages[index],
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
               trailing: RadioButton(
                   groupValue: selectedLanguage,
@@ -77,15 +77,16 @@ class _LanguageDialogState extends State<LanguageDialog> {
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: () => completer(
-              DialogResponse(confirmed: false, data: selectedLanguage)),
-          child: Text(request.mainButtonTitle!),
+        Center(
+          child: TextButton(
+            onPressed: () => completer(
+                DialogResponse(confirmed: true, data: selectedLanguage)),
+            child: Text(request.mainButtonTitle!, style: Theme.of(context).textTheme.bodyText1,),
+          ),
         ),
       ],
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12.0))),
-      actionsPadding: EdgeInsets.symmetric(horizontal: 60.0),
       contentPadding: EdgeInsets.symmetric(horizontal: 24.0),
       titlePadding: EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 16.0),
     );

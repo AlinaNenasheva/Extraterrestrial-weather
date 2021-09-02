@@ -25,7 +25,7 @@ class SettingsView extends StatelessWidget {
               children: [
                 Text(
                   'Settings',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
                 SizedBox(height: 80.0,),
                 Expanded(
@@ -48,11 +48,11 @@ class SettingsView extends StatelessWidget {
                                       bottomRight: Radius.circular(15.0),
                                       bottomLeft: Radius.circular(15.0)) :
                                   BorderRadius.zero,
-                                  color: Colors.grey.withOpacity(0.3),
+                                  color: Color(0xFF5d6475).withOpacity(0.3),
                                 ),
                                 child: Center(child: Text(Consts.settings[index])),
                               ),
-                              onTap: model.getSettingsOptions(Consts.settings[index])
+                              onTap: () => model.getSettingsOptions(Consts.settings[index])
                             ),
                             if (index != Consts.settings.length - 1)
                               Divider(height: 0.5)

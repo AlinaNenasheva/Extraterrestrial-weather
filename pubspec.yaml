@@ -34,7 +34,8 @@ dependencies:
   flutter_test:
     sdk: flutter
   stacked_generator: ^0.4.8
-
+  http: ^0.13.3
+  intl: ^0.17.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -43,7 +44,6 @@ flutter:
 
   assets:
     - assets/
-    -
   fonts:
     - family: Montserrat
       fonts:

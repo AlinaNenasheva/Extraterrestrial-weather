@@ -11,7 +11,7 @@ void main() {
   setupLocator();
   setupDialogUi();
   runApp(MyApp());
-}
+  }
 
 class MyApp extends StatelessWidget {
   @override
