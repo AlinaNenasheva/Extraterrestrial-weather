@@ -12,6 +12,6 @@ class ApiService {
       ('https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json'));
     FullJsonDto fullJsonDto = FullJsonDto.fromApi(jsonDecode(response.body));
     List<SolWeatherDto> solWeatherDto = [];
-    return fullJsonDto.soles.sublist(0,6).map((e) => SolWeatherDto.fromApi(e)).toList();
+    return fullJsonDto.soles.sublist(0,7).map((e) => SolWeatherDto.fromApi(e)).toList();
   }
 }

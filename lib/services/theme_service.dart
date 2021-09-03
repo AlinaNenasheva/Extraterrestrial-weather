@@ -39,6 +39,8 @@ class ThemeService {
           subtitle2: TextStyle(fontSize: 16.0, color: Colors.white),
           headline6: TextStyle(
               fontSize: 22.0, fontWeight: FontWeight.w700, color: Colors.white),
+          subtitle1: TextStyle(
+              fontSize: 18.0, fontWeight: FontWeight.w700, color: Colors.white),
           headline4: TextStyle(
               fontSize: 32.0,
               fontWeight: FontWeight.w700,

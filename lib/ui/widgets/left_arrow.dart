@@ -18,7 +18,7 @@ Widget getLeftArrow(BuildContext context, PageController _controller) {
         child: GestureDetector(
           onHorizontalDragUpdate: (details) {
             if (details.delta.dx > 0.0) {
-              _controller.nextPage(
+              _controller.previousPage(
                   duration: const Duration(milliseconds: 150),
                   curve: Curves.easeInOut);
             }

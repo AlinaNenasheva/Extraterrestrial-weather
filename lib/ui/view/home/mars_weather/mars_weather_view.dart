@@ -1,5 +1,6 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/ui/widgets/right_arrow.dart';
+import 'package:extraterrestrial_weather/ui/widgets/weather_container.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -22,62 +23,67 @@ class MarsWeatherView extends StatelessWidget {
                       fit: BoxFit.fill)),
             ),
             Container(
-              padding: EdgeInsets.only(top: 150.0, left: 32.0, right: 32.0),
+              padding: EdgeInsets.only(top: 150.0),
               child: model.isLoading ? CircularProgressIndicator(): Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 20.0),
+                    padding: EdgeInsets.only(bottom: 20.0, left: 32.0, right: 32.0),
                     child: Text(
                       'Latest Weather at Gale Crater',
                       style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 10.0),
+                    padding: EdgeInsets.only(bottom: 15.0, left: 32.0, right: 32.0),
                     child: Text(
-                      "Sol ${model.solWeatherDto[0].sol}",
+                      "Sol ${model.getLatestDay().sol}",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 10.0),
+                    padding: EdgeInsets.only(bottom: 15.0, left: 32.0, right: 32.0),
                     child: Text(
-                      "${model.solWeatherDto[0].terrestrialDate}",
+                      "${model.getLatestDay().terrestrialDate}",
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ),
                   Text(
-                    "High: ${model.solWeatherDto[0].highCelsius} °C",
+                    "High: ${model.getLatestDay().highCelsius} °C)",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
-                    "Low: ${model.solWeatherDto[0].highCelsius} °C",
+                    "Low: ${model.getLatestDay().lowCelsius} °C",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
-                    "Low: ${model.solWeatherDto[0].pressure} Pa(${model.solWeatherDto[0].pressureStatus})",
+                    "Low: ${model.getLatestDay().pressure} Pa(${model.getLatestDay().pressureStatus})",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
-                    "Sunrise: ${model.solWeatherDto[0].sunrise}",
+                    "Sunrise: ${model.getLatestDay().sunrise}",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
-                    "Sunset: ${model.solWeatherDto[0].sunrise}",
+                    "Sunset: ${model.getLatestDay().sunrise}",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
-                  Expanded(
+                  Flexible(
                     child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                              color: Color(0xFF5d6475),
-                            ),
-                          );
-                        }
-                    ),
+                        shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: model.getOtherDaysLength(),
+                          itemBuilder: (context, index) {
+                            return getWeatherContainer(context, model.getOtherDays()[index]);
+                          }
+                    )
+                    // child: ListView.builder(
+                    //   shrinkWrap: true,
+                    //     scrollDirection: Axis.horizontal,
+                    //     itemCount: model.getOtherDaysLength(),
+                    //     itemBuilder: (context, index) {
+                    //       return getWeatherContainer(context, model.getOtherDays()[index]);
+                    //     }
+                    // ),
                   )
                 ],
               ),
