@@ -22,7 +22,7 @@ class MarsWeatherView extends StatelessWidget {
                       fit: BoxFit.fill)),
             ),
             Container(
-              padding: EdgeInsets.only(top: 100.0, left: 32.0, right: 32.0),
+              padding: EdgeInsets.only(top: 150.0, left: 32.0, right: 32.0),
               child: model.isLoading ? CircularProgressIndicator(): Column(
                 children: [
                   Padding(
@@ -58,6 +58,27 @@ class MarsWeatherView extends StatelessWidget {
                     "Low: ${model.solWeatherDto[0].pressure} Pa(${model.solWeatherDto[0].pressureStatus})",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
+                  Text(
+                    "Sunrise: ${model.solWeatherDto[0].sunrise}",
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                  Text(
+                    "Sunset: ${model.solWeatherDto[0].sunrise}",
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                              color: Color(0xFF5d6475),
+                            ),
+                          );
+                        }
+                    ),
+                  )
                 ],
               ),
             )
