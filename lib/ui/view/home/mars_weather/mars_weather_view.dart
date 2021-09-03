@@ -48,7 +48,7 @@ class MarsWeatherView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "High: ${model.getLatestDay().highCelsius} °C)",
+                    "High: ${model.getLatestDay().highCelsius} °C",
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
