@@ -39,14 +39,18 @@ Widget getWeatherContainer(BuildContext context, SolWeatherDto weatherDay) {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("${weatherDay.sunrise} "),
+            Text("${weatherDay.sunrise} ",
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             Image.asset("assets/sunrise.png", color: Colors.white, width: 20.0,),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("${weatherDay.sunset} "),
+            Text("${weatherDay.sunset} ",
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             Image.asset("assets/sunset.png", color: Colors.white, width: 20.0,),
           ],
         )

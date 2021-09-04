@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/consts/enums.dart';
+import 'package:extraterrestrial_weather/models/apod_dto.dart';
 import 'package:extraterrestrial_weather/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';

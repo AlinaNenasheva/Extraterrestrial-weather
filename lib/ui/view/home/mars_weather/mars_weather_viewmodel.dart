@@ -22,7 +22,7 @@ class MarsWeatherViewModel extends BaseViewModel {
 
   getLatestDay() => _solWeatherDto[0];
 
-  getOtherDaysLength() => _solWeatherDto.sublist(0, 6).length;
+  getOtherDaysLength() => _solWeatherDto.sublist(1, 7).length;
 
-  getOtherDays() => _solWeatherDto.sublist(0, 6);
+  getOtherDays() => _solWeatherDto.sublist(1, 7);
 }

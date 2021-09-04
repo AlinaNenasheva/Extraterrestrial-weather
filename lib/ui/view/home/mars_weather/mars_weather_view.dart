@@ -24,7 +24,9 @@ class MarsWeatherView extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(top: 150.0),
-              child: model.isLoading ? CircularProgressIndicator(): Column(
+              child: model.isLoading ?
+              Center(child: CircularProgressIndicator(color: Colors.white)):
+              Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.0, left: 32.0, right: 32.0),
@@ -47,25 +49,61 @@ class MarsWeatherView extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ),
-                  Text(
-                    "High: ${model.getLatestDay().highCelsius} °C",
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                  Text(
-                    "Low: ${model.getLatestDay().lowCelsius} °C",
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                  Text(
-                    "Low: ${model.getLatestDay().pressure} Pa(${model.getLatestDay().pressureStatus})",
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                  Text(
-                    "Sunrise: ${model.getLatestDay().sunrise}",
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                  Text(
-                    "Sunset: ${model.getLatestDay().sunrise}",
-                    style: Theme.of(context).textTheme.subtitle2,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "High:",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "Low:",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "Pressure:",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "Sunrise:",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "Sunset:",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "${model.getLatestDay().highCelsius} °C",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "${model.getLatestDay().lowCelsius} °C",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "${model.getLatestDay().pressure} Pa",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "${model.getLatestDay().sunrise}",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                          Text(
+                            "${model.getLatestDay().sunset}",
+                            style: Theme.of(context).textTheme.subtitle2,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   Flexible(
                     child: ListView.builder(
@@ -76,14 +114,6 @@ class MarsWeatherView extends StatelessWidget {
                             return getWeatherContainer(context, model.getOtherDays()[index]);
                           }
                     )
-                    // child: ListView.builder(
-                    //   shrinkWrap: true,
-                    //     scrollDirection: Axis.horizontal,
-                    //     itemCount: model.getOtherDaysLength(),
-                    //     itemBuilder: (context, index) {
-                    //       return getWeatherContainer(context, model.getOtherDays()[index]);
-                    //     }
-                    // ),
                   )
                 ],
               ),
