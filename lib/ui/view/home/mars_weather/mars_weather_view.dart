@@ -1,9 +1,10 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/ui/widgets/right_arrow.dart';
 import 'package:extraterrestrial_weather/ui/widgets/weather_container.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
 import 'mars_weather_viewmodel.dart';
 
 class MarsWeatherView extends StatelessWidget {
@@ -19,7 +20,7 @@ class MarsWeatherView extends StatelessWidget {
               width: MediaQuery.of(context).size.width + 2,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/mars_weather_bg.png"),
+                      image: AssetImage("assets/images/mars_weather_bg.png"),
                       fit: BoxFit.fill)),
             ),
             Container(
@@ -31,14 +32,14 @@ class MarsWeatherView extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.0, left: 32.0, right: 32.0),
                     child: Text(
-                      'Latest Weather at Gale Crater',
+                      ConstKeys.mars_weather_title.tr(),
                       style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.center,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 15.0, left: 32.0, right: 32.0),
                     child: Text(
-                      "Sol ${model.getLatestDay().sol}",
+                      "${ConstKeys.sol.tr()} ${model.getLatestDay().sol}",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),

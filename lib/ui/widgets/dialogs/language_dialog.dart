@@ -1,6 +1,8 @@
-import 'package:extraterrestrial_weather/consts/const_strings.dart' as Consts;
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:easy_localization/easy_localization.dart' as loc;
 
 import '../radiobutton.dart';
 
@@ -26,7 +28,16 @@ class _LanguageDialogState extends State<LanguageDialog> {
 
   @override
   void initState() {
-    if (request.data != null) selectedLanguage = request.data;
+    if (request.data != null) {
+      switch (request.data) {
+        case 'en':
+          selectedLanguage = 0;
+          break;
+        case 'ru':
+          selectedLanguage = 1;
+          break;
+      }
+    }
     super.initState();
   }
 
@@ -45,7 +56,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
         width: double.maxFinite,
         child: ListView.builder(
           physics: NeverScrollableScrollPhysics(),
-          itemCount: Consts.supportedLanguages.length,
+          itemCount: ConstKeys.supportedLanguages.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return ListTile(
@@ -54,14 +65,14 @@ class _LanguageDialogState extends State<LanguageDialog> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    Consts.supportedLanguagesIcons[index],
+                    ConstPaths.supportedLanguagesIcons[index],
                     height: 20,
                     width: 28,
                   ),
                 ],
               ),
               title: Text(
-                Consts.supportedLanguages[index],
+                loc.tr(ConstKeys.supportedLanguages[index]),
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               trailing: RadioButton(
@@ -71,6 +82,16 @@ class _LanguageDialogState extends State<LanguageDialog> {
                   width: 20.0),
               onTap: () => setState(() {
                 selectedLanguage = index;
+                switch (selectedLanguage) {
+                  case 0:
+                    context.setLocale(Locale('ru'));
+                    return completer(
+                        DialogResponse(confirmed: true, data: 'ru'));
+                  case 1:
+                    context.setLocale(Locale('en'));
+                    return completer(
+                        DialogResponse(confirmed: true, data: 'en'));
+                }
               }),
             );
           },
@@ -81,7 +102,10 @@ class _LanguageDialogState extends State<LanguageDialog> {
           child: TextButton(
             onPressed: () => completer(
                 DialogResponse(confirmed: true, data: selectedLanguage)),
-            child: Text(request.mainButtonTitle!, style: Theme.of(context).textTheme.bodyText1,),
+            child: Text(
+              request.mainButtonTitle!,
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
           ),
         ),
       ],

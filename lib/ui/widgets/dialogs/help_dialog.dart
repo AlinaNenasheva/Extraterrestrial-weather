@@ -1,4 +1,4 @@
-import 'package:extraterrestrial_weather/consts/const_strings.dart' as Consts;
+import 'package:extraterrestrial_weather/consts/const_keys.dart' as Consts;
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 

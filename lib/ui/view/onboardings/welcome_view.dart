@@ -1,5 +1,7 @@
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/ui/view/onboardings/welcome_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:stacked/stacked.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -11,14 +13,14 @@ class WelcomeView extends StatelessWidget {
           height: double.maxFinite,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/welcome_bg.jpg"),
+                  image: AssetImage("assets/images/welcome_bg.jpg"),
                   fit: BoxFit.cover)),
           padding:
               EdgeInsets.only(top: 80.0, bottom: 40, left: 32.0, right: 32.0),
           child: Column(
             children: [
               Text(
-                'Welcome to extraterrestrial weather!',
+                ConstKeys.welcome_title.tr(),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(
@@ -27,7 +29,7 @@ class WelcomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 80.0),
                 child: Text(
-                  'Feel out of the Earth and discover stars in the elevating journey straight to the stars!',
+                  ConstKeys.welcome_subtitle.tr(),
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),
@@ -42,7 +44,7 @@ class WelcomeView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(32.0),
                 ),
                 child: Text(
-                  "Explore more",
+                  ConstKeys.welcome_button.tr(),
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
                 onPressed: () => model.navigateToRandomPicture(),

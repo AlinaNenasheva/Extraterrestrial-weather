@@ -1,7 +1,7 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/ui/view/home/random_picture/random_picture_viewmodel.dart';
-import 'package:extraterrestrial_weather/ui/widgets/left_arrow.dart';
-import 'package:extraterrestrial_weather/ui/widgets/right_arrow.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,57 +16,71 @@ class RandomPictureView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/random_picture_bg.png"),
+                    image: AssetImage("assets/images/random_picture_bg.png"),
                     fit: BoxFit.fill)),
           ),
-          Container(
-            padding: EdgeInsets.only(top: 80.0, left: 32.0, right: 32.0, bottom: 80.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                model.isLoading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                        backgroundColor: Colors.white,
-                      ))
-                    : Stack(children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 2,
+          model.isLoading
+              ? Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.white,
+              )) : Column(
+            children: [
+              SizedBox(height: 80.0),
+              Container(
+                  height: MediaQuery.of(context).size.height / 2 - 80.0,
+                  width: MediaQuery.of(context).size.width - 32.0 * 2,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(16.0),
+                        topLeft: Radius.circular(16.0)),
+                        child: Image.network(
+                    model.apodDto.HDUrl,
+                    fit: BoxFit.cover,
+                  ),
+                      )
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(left: 32.0, right: 32.0, bottom: 80.0),
+                  padding: EdgeInsets.only(top: 10.0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF5d6475),
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(16.0),
+                          bottomLeft: Radius.circular(16.0))
+                  ),
+                  child: RawScrollbar(
+                    thumbColor: Colors.white,
+                    thickness: 2.0,
+                    radius: Radius.circular(11.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Text(
+                              "${ConstKeys.today_picture.tr()} \n${model.apodDto.title}",
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
-                          child: Image.network(
-                            model.apodDto.HDUrl,
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0, top: 8.0),
+                            child: Text(
+                              model.apodDto.explanation,
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
                           ),
-                        )
-                      ]),
-                Container(
-                  height: 330.0,
-                  padding: EdgeInsets.all(16.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF5d6475).withOpacity(0.7),
-                    borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Today's picture is ... \n${model.apodDto.title}",
-                          style: Theme.of(context).textTheme.headline6,
-                        ),
-                        Text(
-                          model.apodDto.explanation,
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-        ]),
+              )
+
+            ],
+          )]),
       ),
       disposeViewModel: false,
       initialiseSpecialViewModelsOnce: true,

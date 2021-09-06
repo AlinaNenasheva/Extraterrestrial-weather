@@ -1,7 +1,8 @@
-import 'package:extraterrestrial_weather/consts/const_strings.dart' as Consts;
-import 'package:extraterrestrial_weather/ui/widgets/left_arrow.dart';
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:easy_localization/easy_localization.dart' as loc;
+
 
 import 'settings_viewmodel.dart';
 
@@ -16,7 +17,7 @@ class SettingsView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/settings_bg.png"),
+                    image: AssetImage("assets/images/settings_bg.png"),
                     fit: BoxFit.fill)),
           ),
           Container(
@@ -32,7 +33,7 @@ class SettingsView extends StatelessWidget {
                   child: ListView.builder(
                       padding: const EdgeInsets.all(8.0),
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: Consts.settings.length,
+                      itemCount: ConstKeys.settings.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
@@ -43,18 +44,21 @@ class SettingsView extends StatelessWidget {
                                   borderRadius: index == 0 ? BorderRadius.only(
                                       topRight: Radius.circular(15.0),
                                       topLeft: Radius.circular(15.0)) :
-                                  index == Consts.settings.length - 1 ?
+                                  index == ConstKeys.settings.length - 1 ?
                                   BorderRadius.only(
                                       bottomRight: Radius.circular(15.0),
                                       bottomLeft: Radius.circular(15.0)) :
                                   BorderRadius.zero,
                                   color: Color(0xFF5d6475).withOpacity(0.3),
                                 ),
-                                child: Center(child: Text(Consts.settings[index])),
+                                child: Center(child: Text(loc.tr(ConstKeys.settings[index]))),
                               ),
-                              onTap: () => model.getSettingsOptions(Consts.settings[index])
+                              onTap: () {
+                                print(ConstKeys.settings[index]);
+                                model.getSettingsOptions(ConstKeys.settings[index]);
+                        }
                             ),
-                            if (index != Consts.settings.length - 1)
+                            if (index != ConstKeys.settings.length - 1)
                               Divider(height: 0.5)
                           ],
                         );

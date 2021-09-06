@@ -42,7 +42,7 @@ Widget getWeatherContainer(BuildContext context, SolWeatherDto weatherDay) {
             Text("${weatherDay.sunrise} ",
               style: Theme.of(context).textTheme.subtitle2,
             ),
-            Image.asset("assets/sunrise.png", color: Colors.white, width: 20.0,),
+            Image.asset("assets/images/sunrise.png", color: Colors.white, width: 20.0,),
           ],
         ),
         Row(
@@ -51,7 +51,7 @@ Widget getWeatherContainer(BuildContext context, SolWeatherDto weatherDay) {
             Text("${weatherDay.sunset} ",
               style: Theme.of(context).textTheme.subtitle2,
             ),
-            Image.asset("assets/sunset.png", color: Colors.white, width: 20.0,),
+            Image.asset("assets/images/sunset.png", color: Colors.white, width: 20.0,),
           ],
         )
       ],
