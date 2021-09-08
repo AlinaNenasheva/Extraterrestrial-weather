@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/models/sol_weather_dto.dart';
 import 'package:flutter/material.dart';
 
@@ -16,24 +18,21 @@ Widget getWeatherContainer(BuildContext context, SolWeatherDto weatherDay) {
       children: [
         Padding(
           padding: EdgeInsets.only(bottom: 15.0),
-          child: Text("Sol ${weatherDay.sol}",
+          child: Text("${ConstKeys.sol.tr()} ${weatherDay.sol}",
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ),
-        Text("${weatherDay.terrestrialDate}",
+        Text("${DateFormat.yMMMMd(context.locale.languageCode).format(weatherDay.terrestrialDate)}",
           style: Theme.of(context).textTheme.subtitle2,
         ),
         Divider(),
-        Text("High: ${weatherDay.highCelsius} °C",
+        Text("${ConstKeys.high.tr()}: ${weatherDay.highCelsius} °C",
           style: Theme.of(context).textTheme.subtitle2,
         ),
-        Text("Low: ${weatherDay.lowCelsius} °C",
+        Text("${ConstKeys.low.tr()}: ${weatherDay.lowCelsius} °C",
           style: Theme.of(context).textTheme.subtitle2,
         ),
-        Text("Pressure: ${weatherDay.pressure}",
-          style: Theme.of(context).textTheme.subtitle2,
-        ),
-        Text("(${weatherDay.pressureStatus})",
+        Text("${ConstKeys.pressure.tr()}: ${weatherDay.pressure} ${ConstKeys.pa.tr()}",
           style: Theme.of(context).textTheme.subtitle2,
         ),
         Row(

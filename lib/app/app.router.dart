@@ -13,6 +13,7 @@ import 'package:stacked/stacked.dart';
 import '../ui/view/home/home_view.dart';
 import '../ui/view/home/mars_weather/mars_weather_view.dart';
 import '../ui/view/home/random_picture/random_picture_view.dart';
+import '../ui/view/home/settings/liked_images/liked_images_view.dart';
 import '../ui/view/home/settings/settings_view.dart';
 import '../ui/view/onboardings/welcome_view.dart';
 
@@ -22,12 +23,14 @@ class Routes {
   static const String marsWeatherView = '/mars-weather-view';
   static const String settingsView = '/settings-view';
   static const String homeView = '/home-view';
+  static const String likedImagesView = '/liked-images-view';
   static const all = <String>{
     welcomeView,
     randomPictureView,
     marsWeatherView,
     settingsView,
     homeView,
+    likedImagesView,
   };
 }
 
@@ -40,6 +43,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.marsWeatherView, page: MarsWeatherView),
     RouteDef(Routes.settingsView, page: SettingsView),
     RouteDef(Routes.homeView, page: HomeView),
+    RouteDef(Routes.likedImagesView, page: LikedImagesView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -71,6 +75,12 @@ class StackedRouter extends RouterBase {
     HomeView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => HomeView(),
+        settings: data,
+      );
+    },
+    LikedImagesView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => LikedImagesView(),
         settings: data,
       );
     },

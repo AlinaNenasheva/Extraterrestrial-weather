@@ -46,7 +46,7 @@ class MarsWeatherView extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(bottom: 15.0, left: 32.0, right: 32.0),
                     child: Text(
-                      "${model.getLatestDay().terrestrialDate}",
+                      "${DateFormat.yMMMMd(context.locale.languageCode).format(model.getLatestDay().terrestrialDate)}",
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ),
@@ -58,23 +58,23 @@ class MarsWeatherView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "High:",
+                            ConstKeys.high.tr(),
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            "Low:",
+                            ConstKeys.low.tr(),
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            "Pressure:",
+                            ConstKeys.pressure.tr(),
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            "Sunrise:",
+                            ConstKeys.sunrise.tr(),
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            "Sunset:",
+                            ConstKeys.sunset.tr(),
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                         ],
@@ -91,7 +91,7 @@ class MarsWeatherView extends StatelessWidget {
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            "${model.getLatestDay().pressure} Pa",
+                            "${model.getLatestDay().pressure} ${ConstKeys.pa.tr()}",
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(

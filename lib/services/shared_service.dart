@@ -2,17 +2,14 @@ import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedService {
-
   dynamic _getFromDisk(String key) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     var value  =  prefs.get(key);
-    print('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
     return value;
   }
 
   void _saveToDisk<T>(String key, T content) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('(TRACE) LocalStorageService:_saveStringToDisk. key: $key value: $content');
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if(content is String) {
       prefs.setString(key, content);
     }

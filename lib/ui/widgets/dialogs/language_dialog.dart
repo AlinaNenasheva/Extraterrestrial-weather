@@ -31,10 +31,10 @@ class _LanguageDialogState extends State<LanguageDialog> {
     if (request.data != null) {
       switch (request.data) {
         case 'en':
-          selectedLanguage = 0;
+          selectedLanguage = 1;
           break;
         case 'ru':
-          selectedLanguage = 1;
+          selectedLanguage = 0;
           break;
       }
     }
@@ -101,7 +101,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
         Center(
           child: TextButton(
             onPressed: () => completer(
-                DialogResponse(confirmed: true, data: selectedLanguage)),
+                DialogResponse(confirmed: false)),
             child: Text(
               request.mainButtonTitle!,
               style: Theme.of(context).textTheme.bodyText1,

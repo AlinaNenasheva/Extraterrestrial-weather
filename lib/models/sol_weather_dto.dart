@@ -1,9 +1,10 @@
+import 'package:extraterrestrial_weather/services/shared_service.dart';
 import 'package:intl/intl.dart';
 
 class SolWeatherDto {
   SolWeatherDto.fromApi(Map<String, dynamic> map)
       : sol = int.parse(map['sol']),
-        terrestrialDate = DateFormat.yMMMMd().format(DateTime.parse(map['terrestrial_date'])),
+        terrestrialDate = DateTime.parse(map['terrestrial_date']),
         pressure = int.parse(map['pressure']),
         pressureStatus = map['pressure_string'],
         highCelsius = int.parse(map['max_temp']),
@@ -12,7 +13,7 @@ class SolWeatherDto {
         sunset = map['sunset'];
 
   final int sol;
-  final String terrestrialDate;
+  final DateTime terrestrialDate;
   final int pressure;
   final String pressureStatus;
   final int highCelsius;

@@ -9,9 +9,9 @@ import 'app/app.router.dart';
 import 'app/setup_dialog_ui.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   setupDialogUi();
-  WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(

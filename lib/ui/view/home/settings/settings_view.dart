@@ -25,7 +25,7 @@ class SettingsView extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Settings',
+                  ConstKeys.setting.tr(),
                   style: Theme.of(context).textTheme.headline4,
                 ),
                 SizedBox(height: 80.0,),

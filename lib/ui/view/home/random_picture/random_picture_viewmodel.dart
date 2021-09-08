@@ -2,30 +2,39 @@ import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/models/apod_dto.dart';
 import 'package:extraterrestrial_weather/services/api_service.dart';
 import 'package:extraterrestrial_weather/services/shared_service.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
 import 'package:translator/translator.dart';
 
 class RandomPictureViewModel extends BaseViewModel {
   ApiService _apiService = locator<ApiService>();
-  SharedService _sharedService = locator<SharedService>();
-  final translator = GoogleTranslator();
-  ApodDto? _apodDto;
-  get apodDto => _apodDto;
+  final _translator = GoogleTranslator();
+  SharedService _sharedService = SharedService();
+  ApodDto? apodDto;
   bool isLoading = true;
+  bool isLiked = false;
 
-  Future<void> setPicture() async {
-    _apodDto = await _apiService.getPictureOfDay();
+  Future<void> _viewPreload() async {
+    apodDto = await _apiService.getPictureOfDay();
     isLoading = false;
+    if (await _sharedService.getCurrentLanguage() != 'en') {
+      apodDto!.title = (await _translator.translate(apodDto!.title, to: await _sharedService.getCurrentLanguage())).text;
+      apodDto!.explanation = (await _translator.translate(apodDto!.explanation, to: await _sharedService.getCurrentLanguage())).text;
+    }
     notifyListeners();
   }
 
   RandomPictureViewModel() {
-    setPicture();
+    _viewPreload();
   }
 
-  translate(String input) async{
-    translator
-        .translate(input, to: await _sharedService.getCurrentLanguage())
-        .then((result) => result);
+  likeImage() {
+    isLiked = true;
+    notifyListeners();
+    Future.delayed(const Duration(seconds: 1), () {
+      isLiked = false;
+      notifyListeners();
+    });
   }
 }

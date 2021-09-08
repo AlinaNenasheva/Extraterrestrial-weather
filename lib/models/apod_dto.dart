@@ -9,6 +9,6 @@ class ApodDto {
 
   final String HDUrl;
   final String date;
-  final String explanation;
-  final String title;
+  String explanation;
+  String title;
 }

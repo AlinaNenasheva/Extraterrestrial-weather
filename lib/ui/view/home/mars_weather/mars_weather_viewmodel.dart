@@ -10,14 +10,14 @@ class MarsWeatherViewModel extends BaseViewModel {
   List<SolWeatherDto> _solWeatherDto = [];
   bool isLoading = true;
 
-  Future<void> setWeather() async {
+  Future<void> _viewPreload() async {
     _solWeatherDto = await _apiService.getWeather();
     isLoading = false;
     notifyListeners();
   }
 
   MarsWeatherViewModel() {
-    setWeather();
+    _viewPreload();
   }
 
   getLatestDay() => _solWeatherDto[0];
