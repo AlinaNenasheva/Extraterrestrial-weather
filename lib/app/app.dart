@@ -1,4 +1,7 @@
 import 'package:extraterrestrial_weather/services/api_service.dart';
+import 'package:extraterrestrial_weather/services/database_service/database_config.dart';
+import 'package:extraterrestrial_weather/services/database_service/database_service.dart';
+import 'package:extraterrestrial_weather/services/shared_service.dart';
 import 'package:extraterrestrial_weather/ui/view/home/home_view.dart';
 import 'package:extraterrestrial_weather/ui/view/home/mars_weather/mars_weather_view.dart';
 import 'package:extraterrestrial_weather/ui/view/home/mars_weather/mars_weather_viewmodel.dart';
@@ -17,6 +20,10 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: DialogService),
     Singleton(classType: MarsWeatherViewModel),
     Singleton(classType: RandomPictureViewModel),
+    Presolve(
+      classType: SharedService,
+      presolveUsing: SharedService.getInstance,
+    ),
   ],
   routes: [
     MaterialRoute(page: WelcomeView, initial: true),

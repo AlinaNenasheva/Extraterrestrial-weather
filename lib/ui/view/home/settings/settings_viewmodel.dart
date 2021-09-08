@@ -42,16 +42,14 @@ class SettingsViewModel extends BaseViewModel {
     );
     if (response!.confirmed) {
       _sharedService.currentLanguage = response.data;
-      if (response.data != 'en') {
         _randomPictureViewModel.apodDto!.title = (await
         _translator.translate(_randomPictureViewModel.apodDto!.title, to: response.data)).text;
         _randomPictureViewModel.apodDto!.explanation = (await
         _translator.translate(_randomPictureViewModel.apodDto!.explanation, to: response.data)).text;
-      }
     }
   }
 
   _navigateToLikedPhotos() {
-    _navigator.replaceWith(Routes.likedImagesView);
+    _navigator.navigateTo(Routes.likedImagesView);
   }
 }

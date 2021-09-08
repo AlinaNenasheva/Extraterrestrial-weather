@@ -2,28 +2,43 @@ import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedService {
+  static SharedService? _instance;
+  static SharedPreferences? _preferences;
+
+  static Future<SharedService?> getInstance() async {
+    if (_instance == null) {
+      _instance = SharedService();
+    }
+
+    if (_preferences == null) {
+      _preferences = await SharedPreferences.getInstance();
+    }
+
+    return _instance;
+  }
+
   dynamic _getFromDisk(String key) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var value  =  prefs.get(key);
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    var value  =  _preferences!.get(key);
     return value;
   }
 
   void _saveToDisk<T>(String key, T content) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
     if(content is String) {
-      prefs.setString(key, content);
+      _preferences!.setString(key, content);
     }
     if(content is bool) {
-      prefs.setBool(key, content);
+      _preferences!.setBool(key, content);
     }
     if(content is int) {
-      prefs.setInt(key, content);
+      _preferences!.setInt(key, content);
     }
     if(content is double) {
-      prefs.setDouble(key, content);
+      _preferences!.setDouble(key, content);
     }
     if(content is List<String>) {
-      prefs.setStringList(key, content);
+      _preferences!.setStringList(key, content);
     }
   }
 
