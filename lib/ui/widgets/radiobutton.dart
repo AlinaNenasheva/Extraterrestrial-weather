@@ -9,9 +9,9 @@ class RadioButton<T> extends StatelessWidget {
 
   RadioButton(
       {required this.value,
-        required this.groupValue,
-        this.width = 25,
-        this.height = 25});
+      required this.groupValue,
+      this.width = 25,
+      this.height = 25});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,9 @@ class RadioButton<T> extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-                color: value == groupValue ? Color(0xFF858b97) : Color(0xFF20292e)
-            )
-        ),
+                color: value == groupValue
+                    ? Color(0xFF858b97)
+                    : Color(0xFF20292e))),
         child: Center(
           child: Container(
             height: this.height - 1.0,
@@ -40,7 +40,9 @@ class RadioButton<T> extends StatelessWidget {
                   width: this.width - 8.0,
                   decoration: ShapeDecoration(
                     shape: CircleBorder(),
-                    color: value == groupValue ? Color(0xFF20292e) : Colors.transparent,
+                    color: value == groupValue
+                        ? Color(0xFF20292e)
+                        : Colors.transparent,
                   )),
             ),
           ),

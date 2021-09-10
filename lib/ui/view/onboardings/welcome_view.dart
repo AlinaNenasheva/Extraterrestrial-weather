@@ -1,4 +1,5 @@
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:extraterrestrial_weather/ui/view/onboardings/welcome_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -13,14 +14,15 @@ class WelcomeView extends StatelessWidget {
           height: double.maxFinite,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/welcome_bg.jpg"),
-                  fit: BoxFit.cover)),
+                  image: AssetImage(ConstPaths.welcomeBG), fit: BoxFit.cover)),
           padding:
               EdgeInsets.only(top: 80.0, bottom: 40, left: 32.0, right: 32.0),
           child: Column(
             children: [
               Text(
-                ConstKeys.welcome_title.tr(),
+                model.isFirstEntry ?? true
+                    ? ConstKeys.welcome_title.tr()
+                    : ConstKeys.not_first_welcome_title.tr(),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(
@@ -29,7 +31,9 @@ class WelcomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 80.0),
                 child: Text(
-                  ConstKeys.welcome_subtitle.tr(),
+                  model.isFirstEntry ?? true
+                      ? ConstKeys.welcome_subtitle.tr()
+                      : ConstKeys.not_first_welcome_subtitle.tr(),
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

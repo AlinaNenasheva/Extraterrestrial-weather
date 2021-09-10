@@ -1,3 +1,4 @@
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:flutter/material.dart';
 
 Widget previewContainer(String url, VoidCallback onDeletePressed) {
@@ -9,10 +10,7 @@ Widget previewContainer(String url, VoidCallback onDeletePressed) {
           width: 80.0,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24.0),
-              border: Border.all(
-                color: Colors.white
-            )
-          ),
+              border: Border.all(color: Colors.white)),
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(24.0)),
             child: Image.network(url, fit: BoxFit.cover),
@@ -22,8 +20,12 @@ Widget previewContainer(String url, VoidCallback onDeletePressed) {
       IconButton(
         alignment: Alignment.bottomCenter,
         padding: EdgeInsets.zero,
-        onPressed: onDeletePressed, icon: Image.asset('assets/images/close_icon.png', height: 24.0,
-        width: 24.0,),
+        onPressed: onDeletePressed,
+        icon: Image.asset(
+          ConstPaths.close,
+          height: 24.0,
+          width: 24.0,
+        ),
       ),
     ],
   );

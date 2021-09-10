@@ -6,8 +6,8 @@ import 'package:extraterrestrial_weather/ui/view/onboardings/welcome_view.dart';
 import 'package:stacked/stacked.dart';
 
 class HomeViewModel extends BaseViewModel {
-
   int _pageCounter = 1;
+
   int get pageCounter => _pageCounter;
 
   List _pages = [MarsWeatherView(), RandomPictureView(), SettingsView()];

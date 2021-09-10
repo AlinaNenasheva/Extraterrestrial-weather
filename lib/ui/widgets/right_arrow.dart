@@ -34,6 +34,5 @@ Widget getRightArrow(BuildContext context, PageController _controller) {
             },
           ),
         ),
-      )
-  );
+      ));
 }

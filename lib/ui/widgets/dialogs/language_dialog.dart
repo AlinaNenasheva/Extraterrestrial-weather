@@ -3,7 +3,6 @@ import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:easy_localization/easy_localization.dart' as loc;
-
 import '../radiobutton.dart';
 
 class LanguageDialog extends StatefulWidget {
@@ -100,8 +99,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
       actions: [
         Center(
           child: TextButton(
-            onPressed: () => completer(
-                DialogResponse(confirmed: false)),
+            onPressed: () => completer(DialogResponse(confirmed: false)),
             child: Text(
               request.mainButtonTitle!,
               style: Theme.of(context).textTheme.bodyText1,

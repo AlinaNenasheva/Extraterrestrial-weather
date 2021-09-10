@@ -18,34 +18,39 @@ class SharedService {
   }
 
   dynamic _getFromDisk(String key) async {
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-    var value  =  _preferences!.get(key);
+    var value = _preferences!.get(key);
     return value;
   }
 
   void _saveToDisk<T>(String key, T content) async {
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(content is String) {
+    if (content is String) {
       _preferences!.setString(key, content);
     }
-    if(content is bool) {
+    if (content is bool) {
       _preferences!.setBool(key, content);
     }
-    if(content is int) {
+    if (content is int) {
       _preferences!.setInt(key, content);
     }
-    if(content is double) {
+    if (content is double) {
       _preferences!.setDouble(key, content);
     }
-    if(content is List<String>) {
+    if (content is List<String>) {
       _preferences!.setStringList(key, content);
     }
   }
 
-
   Future<String> getCurrentLanguage() async {
     var value = await _getFromDisk(ConstKeys.current_language);
     return value ?? 'en';
-}
-  set currentLanguage(String selectedLanguage) => _saveToDisk(ConstKeys.current_language, selectedLanguage);
+  }
+
+  set currentLanguage(String selectedLanguage) =>
+      _saveToDisk(ConstKeys.current_language, selectedLanguage);
+
+  Future<bool> getFirstEntry() async =>
+      await _getFromDisk(ConstKeys.first_entry) ?? true;
+
+  set isFirstEntry(bool isFirstEntry) =>
+      _saveToDisk(ConstKeys.first_entry, isFirstEntry);
 }

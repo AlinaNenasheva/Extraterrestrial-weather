@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:extraterrestrial_weather/ui/widgets/image_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -14,7 +15,7 @@ class LikedImagesView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         body: Stack(fit: StackFit.expand, children: [
           Image.asset(
-            "assets/images/liked_photos_bg.jpg",
+            ConstPaths.likedPhotosBG,
             fit: BoxFit.cover,
           ),
           Positioned.fill(

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:extraterrestrial_weather/ui/view/home/random_picture/random_picture_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class RandomPictureView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/images/random_picture_bg.png"),
+                    image: AssetImage(ConstPaths.randomPictureBG),
                     fit: BoxFit.fill)),
           ),
           model.isLoading
@@ -47,8 +48,13 @@ class RandomPictureView extends StatelessWidget {
                                           topRight: Radius.circular(16.0),
                                           topLeft: Radius.circular(16.0)),
                                       child: Container(
-                                        height: MediaQuery.of(context).size.height / 2 - 80.0,
-                                        width: MediaQuery.of(context).size.width - 32.0 * 2,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                    2 -
+                                                80.0,
+                                        width:
+                                            MediaQuery.of(context).size.width -
+                                                32.0 * 2,
                                         child: Image.network(
                                           model.apodDto!.HDUrl,
                                           fit: BoxFit.cover,
@@ -75,7 +81,7 @@ class RandomPictureView extends StatelessWidget {
                             left: 32.0, right: 32.0, bottom: 80.0),
                         padding: EdgeInsets.only(top: 10.0),
                         decoration: BoxDecoration(
-                            color: Color(0xFF5d6475),
+                            color: Theme.of(context).primaryColor,
                             borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(16.0),
                                 bottomLeft: Radius.circular(16.0))),

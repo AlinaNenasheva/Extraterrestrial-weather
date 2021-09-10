@@ -4,7 +4,6 @@ import 'package:extraterrestrial_weather/services/api_service.dart';
 import 'package:stacked/stacked.dart';
 
 class MarsWeatherViewModel extends BaseViewModel {
-
   ApiService _apiService = locator<ApiService>();
 
   List<SolWeatherDto> _solWeatherDto = [];

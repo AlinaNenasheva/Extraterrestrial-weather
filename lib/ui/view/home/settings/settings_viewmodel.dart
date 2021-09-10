@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/app/app.router.dart';
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
+import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:extraterrestrial_weather/consts/enums.dart';
 import 'package:extraterrestrial_weather/services/shared_service.dart';
 import 'package:easy_localization/easy_localization.dart' as loc;
@@ -24,7 +23,8 @@ class SettingsViewModel extends BaseViewModel {
         _onLanguageOptionPressed();
         break;
       case "help":
-        return () {};
+        showHelpDialog(0);
+        break;
       case "liked_photos":
         _navigateToLikedPhotos();
         break;
@@ -47,6 +47,20 @@ class SettingsViewModel extends BaseViewModel {
         _randomPictureViewModel.apodDto!.explanation = (await
         _translator.translate(_randomPictureViewModel.apodDto!.explanation, to: response.data)).text;
     }
+  }
+
+  showHelpDialog(int index) async {
+    await _dialogService.showCustomDialog(
+      data: index,
+      variant: DialogType.help,
+      title: loc.tr(ConstKeys.help_content[index][ConstKeys.help_titles]),
+      description: loc.tr(ConstKeys.help_content[index][ConstKeys.help_subtitles]),
+      hasImage: ConstPaths.helpAnimations[index] != null,
+      imageUrl: ConstPaths.helpContentImages[index],
+      mainButtonTitle: loc.tr(ConstKeys.help_content[index][ConstKeys.help_buttons]),
+    );
+    if (index < ConstKeys.help_content.length - 1)
+      showHelpDialog(index + 1);
   }
 
   _navigateToLikedPhotos() {

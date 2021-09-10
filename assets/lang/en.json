@@ -8,6 +8,8 @@
   "english": "English",
   "today_picture": "Today's picture is ...",
   "welcome_title": "Welcome to extraterrestrial weather!",
+  "not_first_welcome_title": "We glad to see you again!",
+  "not_first_welcome_subtitle": "Hope you are doing great and can't wait to discover more stars!",
   "welcome_subtitle": "Feel out of the Earth and discover stars in the elevating journey straight to the stars!",
   "welcome_button": "Explore more",
   "settings": "Settings",
@@ -18,5 +20,15 @@
   "pressure": "Pressure",
   "sunrise": "Sunrise",
   "sunset": "Sunset",
-  "pa": "Pa"
+  "pa": "Pa",
+  "info": "As more data from a particular sol is downlinked from the spacecraft (sometimes several days later), these values are recalculated, and may not be comparable to latest Earth days.",
+  "help_title_1": "Weather",
+  "help_subtitle_1": "See latest collected weather from Mars. Swipe right to see more days.",
+  "help_button_1": "Proceed",
+  "help_title_2": "Images",
+  "help_subtitle_2": "Like favourite astronomy images by double tap and save it",
+  "help_button_2": "Next",
+  "help_title_3": "\"Liked images\"",
+  "help_subtitle_3": "In \"Liked images\" look go over saved images and delete if needed.",
+  "help_button_3": "Finish"
 }

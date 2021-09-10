@@ -1,6 +1,3 @@
-import 'package:extraterrestrial_weather/services/shared_service.dart';
-import 'package:intl/intl.dart';
-
 class SolWeatherDto {
   SolWeatherDto.fromApi(Map<String, dynamic> map)
       : sol = int.parse(map['sol']),

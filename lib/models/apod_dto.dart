@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 class ApodDto {
   ApodDto.fromApi(Map<String, dynamic> map)
-      : HDUrl = map['hdurl'],
+      : HDUrl = map['url'],
         date = DateTime.parse(map['date']),
         explanation = map['explanation'],
         title = map['title'];
