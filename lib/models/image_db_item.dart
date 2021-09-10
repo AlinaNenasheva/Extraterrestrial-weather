@@ -1,23 +1,23 @@
 class ImageDbItem {
   ImageDbItem({
-    required this.hdURL,
+    required this.url,
     required this.date,
   });
 
   static final String tableName = "liked_image";
-  static final String columnURL = "hdURL";
+  static final String columnURL = "url";
   static final String columnDate = "date";
 
-  String hdURL;
+  String url;
   DateTime date;
 
   Map<String, dynamic> toMap() => {
-    columnURL: hdURL,
+    columnURL: url,
     columnDate: date.toString(),
   };
 
   ImageDbItem.fromMap(Map<String, dynamic> map)
-        : this.hdURL = map[columnURL],
+        : this.url = map[columnURL],
          this.date = DateTime.parse(map[columnDate]);
 
   static List<ImageDbItem> fromMapList(List<dynamic> maps) => maps.map((i) => ImageDbItem.fromMap(i)).toList();

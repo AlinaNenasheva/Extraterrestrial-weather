@@ -56,7 +56,7 @@ class RandomPictureView extends StatelessWidget {
                                             MediaQuery.of(context).size.width -
                                                 32.0 * 2,
                                         child: Image.network(
-                                          model.apodDto!.HDUrl,
+                                          model.apodDto!.url,
                                           fit: BoxFit.cover,
                                         ),
                                       ),

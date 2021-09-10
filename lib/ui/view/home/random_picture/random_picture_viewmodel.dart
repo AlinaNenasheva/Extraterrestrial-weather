@@ -46,7 +46,7 @@ class RandomPictureViewModel extends BaseViewModel {
     Future.delayed(const Duration(seconds: 1), () {
       isLiked = false;
       _databaseService
-          .addImage(ImageDbItem(hdURL: apodDto!.HDUrl, date: apodDto!.date));
+          .addImage(ImageDbItem(url: apodDto!.url, date: apodDto!.date));
       notifyListeners();
     });
   }
