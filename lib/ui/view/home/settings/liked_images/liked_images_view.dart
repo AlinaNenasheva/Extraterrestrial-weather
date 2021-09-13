@@ -48,7 +48,7 @@ class LikedImagesView extends StatelessWidget {
                     childAspectRatio: 10 / 15,
                     physics: NeverScrollableScrollPhysics(),
                     children: List.generate(model.images.length, (index) {
-                      return previewContainer(model.images[index].url,
+                      return PreviewContainer(model.images[index].url,
                           () => model.deleteImage(model.images[index].url));
                     })),
               ],

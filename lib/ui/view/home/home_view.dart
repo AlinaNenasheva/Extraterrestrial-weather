@@ -27,9 +27,9 @@ class HomeView extends StatelessWidget {
               },
             ),
             if (model.pageCounter != model.getNumberOfViews() - 1)
-              getRightArrow(context, _pageViewController),
+              RightArrow(_pageViewController),
             if (model.pageCounter != 0)
-              getLeftArrow(context, _pageViewController),
+              LeftArrow(_pageViewController),
             Positioned(
               bottom: 50,
               right: MediaQuery.of(context).size.width / 2 - 28.0,

@@ -122,8 +122,7 @@ class MarsWeatherView extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               itemCount: model.getOtherDaysLength(),
                               itemBuilder: (context, index) {
-                                return getWeatherContainer(
-                                    context, model.getOtherDays()[index]);
+                                return WeatherContainer(model.getOtherDays()[index]);
                               }))
                     ],
                   ),
