@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/consts/const_paths.dart';
@@ -55,8 +56,14 @@ class RandomPictureView extends StatelessWidget {
                                         width:
                                             MediaQuery.of(context).size.width -
                                                 32.0 * 2,
-                                        child: Image.network(
-                                          model.apodDto!.url,
+                                        child: CachedNetworkImage(
+                                          placeholder: (context, url) =>
+                                              Center(
+                                                child: CircularProgressIndicator(
+                                            color: Colors.white,
+                                          ),
+                                              ),
+                                          imageUrl: model.apodDto!.url,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
