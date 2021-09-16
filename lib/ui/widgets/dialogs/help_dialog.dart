@@ -35,7 +35,7 @@ class HelpDialog extends StatelessWidget {
                 Positioned(
                     top: 50.0,
                     right: 50.0,
-                    child: Lottie.asset(ConstPaths.helpAnimations[request.data],
+                    child: Lottie.asset(ConstPaths.help_animations[request.data],
                         height: 50.0))
             ],
           )

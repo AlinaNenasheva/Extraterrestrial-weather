@@ -16,7 +16,7 @@ class SettingsView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(ConstPaths.settingsBG),
+                    image: AssetImage(ConstPaths.settings_bg),
                     fit: BoxFit.fill)),
           ),
           Container(

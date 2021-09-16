@@ -15,7 +15,7 @@ class LikedImagesView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         body: Stack(fit: StackFit.expand, children: [
           Image.asset(
-            ConstPaths.likedPhotosBG,
+            ConstPaths.liked_photos_bg,
             fit: BoxFit.cover,
           ),
           Positioned.fill(

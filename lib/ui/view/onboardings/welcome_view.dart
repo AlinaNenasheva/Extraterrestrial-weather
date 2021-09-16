@@ -14,7 +14,7 @@ class WelcomeView extends StatelessWidget {
           height: double.maxFinite,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(ConstPaths.welcomeBG), fit: BoxFit.cover)),
+                  image: AssetImage(ConstPaths.welcome_bg), fit: BoxFit.cover)),
           padding:
               EdgeInsets.only(top: 80.0, bottom: 40, left: 32.0, right: 32.0),
           child: Column(

@@ -55,8 +55,8 @@ class SettingsViewModel extends BaseViewModel {
       variant: DialogType.help,
       title: loc.tr(ConstKeys.help_content[index][ConstKeys.help_titles]),
       description: loc.tr(ConstKeys.help_content[index][ConstKeys.help_subtitles]),
-      hasImage: ConstPaths.helpAnimations[index] != null,
-      imageUrl: ConstPaths.helpContentImages[index],
+      hasImage: ConstPaths.help_animations[index] != null,
+      imageUrl: ConstPaths.help_content_images[index],
       mainButtonTitle: loc.tr(ConstKeys.help_content[index][ConstKeys.help_buttons]),
     );
     if (index < ConstKeys.help_content.length - 1)

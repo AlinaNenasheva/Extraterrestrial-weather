@@ -19,7 +19,7 @@ class MarsWeatherView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(ConstPaths.marsWeatherBG),
+                    image: AssetImage(ConstPaths.mars_weather_bg),
                     fit: BoxFit.fill)),
           ),
           Container(

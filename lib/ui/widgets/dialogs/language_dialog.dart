@@ -64,7 +64,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    ConstPaths.supportedLanguagesIcons[index],
+                    ConstPaths.supported_languages_icons[index],
                     height: 20,
                     width: 28,
                   ),

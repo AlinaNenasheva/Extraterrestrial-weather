@@ -32,8 +32,8 @@ class WelcomeViewModel extends BaseViewModel {
       title: loc.tr(ConstKeys.help_content[index][ConstKeys.help_titles]),
       description:
           loc.tr(ConstKeys.help_content[index][ConstKeys.help_subtitles]),
-      imageUrl: ConstPaths.helpContentImages[index],
-      hasImage: ConstPaths.helpAnimations[index] != null,
+      imageUrl: ConstPaths.help_content_images[index],
+      hasImage: ConstPaths.help_animations[index] != null,
       mainButtonTitle:
           loc.tr(ConstKeys.help_content[index][ConstKeys.help_buttons]),
     );

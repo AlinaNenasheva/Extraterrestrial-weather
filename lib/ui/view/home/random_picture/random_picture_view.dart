@@ -19,7 +19,7 @@ class RandomPictureView extends StatelessWidget {
             width: MediaQuery.of(context).size.width + 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(ConstPaths.randomPictureBG),
+                    image: AssetImage(ConstPaths.random_picture_bg),
                     fit: BoxFit.fill)),
           ),
           model.isLoading
