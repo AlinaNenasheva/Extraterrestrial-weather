@@ -1,4 +1,4 @@
-import 'package:extraterrestrial_weather/services/api_service.dart';
+import 'package:extraterrestrial_weather/services/api_service/api_service.dart';
 import 'package:extraterrestrial_weather/services/database_service/database_config.dart';
 import 'package:extraterrestrial_weather/services/database_service/database_service.dart';
 import 'package:extraterrestrial_weather/services/shared_service.dart';

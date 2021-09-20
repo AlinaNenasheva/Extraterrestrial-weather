@@ -1,6 +1,6 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
-import 'package:extraterrestrial_weather/models/sol_weather_dto.dart';
-import 'package:extraterrestrial_weather/services/api_service.dart';
+import 'package:extraterrestrial_weather/services/api_service/models/sol_weather_dto.dart';
+import 'package:extraterrestrial_weather/services/api_service/api_service.dart';
 import 'package:stacked/stacked.dart';
 
 class MarsWeatherViewModel extends BaseViewModel {
@@ -20,8 +20,6 @@ class MarsWeatherViewModel extends BaseViewModel {
   }
 
   getLatestDay() => _solWeatherDto[0];
-
-  getOtherDaysLength() => _solWeatherDto.sublist(1, 7).length;
 
   getOtherDays() => _solWeatherDto.sublist(1, 7);
 }

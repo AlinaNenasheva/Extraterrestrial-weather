@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/consts/const_paths.dart';
-import 'package:extraterrestrial_weather/models/sol_weather_dto.dart';
+import 'package:extraterrestrial_weather/services/api_service/models/sol_weather_dto.dart';
 import 'package:flutter/material.dart';
 
 class WeatherContainer extends StatelessWidget {

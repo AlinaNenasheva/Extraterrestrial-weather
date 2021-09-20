@@ -42,10 +42,9 @@ class SettingsViewModel extends BaseViewModel {
     );
     if (response!.confirmed) {
       _sharedService.currentLanguage = response.data;
-        _randomPictureViewModel.apodDto!.title = (await
-        _translator.translate(_randomPictureViewModel.apodDto!.title, to: response.data)).text;
-        _randomPictureViewModel.apodDto!.explanation = (await
-        _translator.translate(_randomPictureViewModel.apodDto!.explanation, to: response.data)).text;
+      _randomPictureViewModel.apodDto!.copyWith(explanation: (await _translator.translate(_randomPictureViewModel.apodDto!.explanation!,
+          to: await _sharedService.getCurrentLanguage())).text, title: (await _translator.translate(_randomPictureViewModel.apodDto!.title!,
+          to: await _sharedService.getCurrentLanguage())).text);
     }
   }
 

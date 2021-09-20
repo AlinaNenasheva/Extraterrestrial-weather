@@ -2,8 +2,8 @@ import 'package:extraterrestrial_weather/consts/const_paths.dart';
 import 'package:flutter/material.dart';
 
 class PreviewContainer extends StatelessWidget {
-  String url;
-  VoidCallback onDeletePressed;
+  final String url;
+  final VoidCallback onDeletePressed;
 
   PreviewContainer(this.url, this.onDeletePressed);
 

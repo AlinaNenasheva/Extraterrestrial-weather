@@ -1,9 +1,9 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
 import 'package:extraterrestrial_weather/consts/const_keys.dart';
 import 'package:extraterrestrial_weather/consts/enums.dart';
-import 'package:extraterrestrial_weather/models/apod_dto.dart';
-import 'package:extraterrestrial_weather/models/image_db_item.dart';
-import 'package:extraterrestrial_weather/services/api_service.dart';
+import 'package:extraterrestrial_weather/services/api_service/models/apod_dto.dart';
+import 'package:extraterrestrial_weather/services/database_service/models/image_db_item.dart';
+import 'package:extraterrestrial_weather/services/api_service/api_service.dart';
 import 'package:extraterrestrial_weather/services/database_service/database_service.dart';
 import 'package:extraterrestrial_weather/services/shared_service.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,12 +26,9 @@ class RandomPictureViewModel extends BaseViewModel {
     apodDto = await _apiService.getPictureOfDay();
     isLoading = false;
     if (await _sharedService.getCurrentLanguage() != 'en') {
-      apodDto!.title = (await _translator.translate(apodDto!.title,
-              to: await _sharedService.getCurrentLanguage()))
-          .text;
-      apodDto!.explanation = (await _translator.translate(apodDto!.explanation,
-              to: await _sharedService.getCurrentLanguage()))
-          .text;
+      apodDto!.copyWith(explanation: (await _translator.translate(apodDto!.explanation!,
+          to: await _sharedService.getCurrentLanguage())).text, title: (await _translator.translate(apodDto!.title!,
+          to: await _sharedService.getCurrentLanguage())).text);
     }
     notifyListeners();
   }
@@ -46,7 +43,7 @@ class RandomPictureViewModel extends BaseViewModel {
     Future.delayed(const Duration(seconds: 1), () {
       isLiked = false;
       _databaseService
-          .addImage(ImageDbItem(url: apodDto!.url, date: apodDto!.date));
+          .addImage(ImageDbItem(url: apodDto!.url!, date: apodDto!.date!));
       notifyListeners();
     });
   }

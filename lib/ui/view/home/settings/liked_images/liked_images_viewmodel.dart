@@ -1,5 +1,5 @@
 import 'package:extraterrestrial_weather/app/app.locator.dart';
-import 'package:extraterrestrial_weather/models/image_db_item.dart';
+import 'package:extraterrestrial_weather/services/database_service/models/image_db_item.dart';
 import 'package:extraterrestrial_weather/services/database_service/database_service.dart';
 import 'package:stacked/stacked.dart';
 

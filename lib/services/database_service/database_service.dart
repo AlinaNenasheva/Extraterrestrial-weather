@@ -1,4 +1,4 @@
-import 'package:extraterrestrial_weather/models/image_db_item.dart';
+import 'package:extraterrestrial_weather/services/database_service/models/image_db_item.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DataBaseService {
